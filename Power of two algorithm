@@ -1,0 +1,16 @@
+Fast algorithm to check if a positive number is a power of two
+The binary representation of integers makes it possible to apply a very fast test to determine whether a given positive integer x is a power of two:
+
+positive x is a power of two ⇔ (x & (x − 1)) is equal to zero.
+where & is a bitwise logical AND operator. Note that if x is 0, this incorrectly indicates that 0 is a power of two, so this check only works if x > 0.
+
+Examples:
+
+−1=1…111…1	  	      −1=1…111…111…1
+x=0…010…0		          y=0…010…010…0
+x − 1=0…001…1		      y−1=0…010…001…1
+x & (x − 1)=0…000…0		y & (y − 1)=0…010…000…0
+
+Proof of Concept:
+Proof uses the technique of contrapositive.
+Statement, S: If x&(x-1) = 0 and x is an integer greater than zero then x = 2k (where k is an integer such that k>=0).
